@@ -1,0 +1,593 @@
+<title>Kalyan Pradyumna Peddinti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a career "release train" — hero, then a Gantt-style roadmap of roles you can click, then filterable role cards, skills, credentials. */
+:root {
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --ink: #141a2b;
+  --muted: #5a6478;
+  --line: #dde2ec;
+  --accent: #2448c9;
+  --accent-soft: #e5eafb;
+  --amber: #b86b00;
+  --fin: #2448c9;
+  --health: #0f8a6b;
+  --ins: #8a4fd6;
+  --travel: #c2410c;
+  --retail: #b8326b;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1220; --surface: #151c2e; --ink: #e8ecf5; --muted: #9aa5bd; --line: #263049;
+    --accent: #7f9cff; --accent-soft: #1d2a52; --amber: #f2a93b;
+    --fin: #7f9cff; --health: #3ccfa5; --ins: #b993f5; --travel: #f58a55; --retail: #f27aaa;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1220; --surface: #151c2e; --ink: #e8ecf5; --muted: #9aa5bd; --line: #263049;
+  --accent: #7f9cff; --accent-soft: #1d2a52; --amber: #f2a93b;
+  --fin: #7f9cff; --health: #3ccfa5; --ins: #b993f5; --travel: #f58a55; --retail: #f27aaa;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+
+/* Top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.mark { font-family: var(--display); font-weight: 800; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+.nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+.nav a { font-size: 0.88rem; color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: 6px; }
+.nav a:hover { color: var(--ink); background: var(--accent-soft); }
+.btn { font: 500 0.85rem var(--body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+/* Hero */
+.hero { padding-block: 56px 32px; display: grid; gap: 28px; }
+.eyebrow { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; }
+.hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.3rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.03em; margin: 8px 0 0; text-wrap: balance; }
+.hero .lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--muted); max-width: 62ch; margin: 18px 0 0; }
+.hero .lead b { color: var(--ink); font-weight: 600; }
+.contact { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 22px; }
+.contact .val { font-family: var(--mono); font-size: 0.9rem; user-select: all; }
+.copied { font-size: 0.8rem; color: var(--health); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: 18px 16px; border-right: 1px solid var(--line); min-width: 0; }
+.stat:last-child { border-right: 0; }
+.stat .n { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem, 3.6vw, 2.5rem); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat .l { color: var(--muted); font-size: 0.86rem; }
+
+section { padding-block: 40px; }
+h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; margin: 0 0 6px; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0 0 22px; max-width: 64ch; }
+
+/* Roadmap (Gantt) */
+.roadmap { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 12px; overflow-x: auto; }
+.rm-inner { min-width: 720px; display: grid; grid-template-columns: 170px 1fr; row-gap: 8px; }
+.rm-label { font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 10px; }
+.rm-track { position: relative; height: 30px; border-left: 1px solid var(--line); }
+.rm-bar { position: absolute; top: 4px; height: 22px; border-radius: 5px; border: 0; cursor: pointer; padding: 0 8px; font: 500 0.72rem var(--mono); color: var(--bg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; transition: transform .15s, opacity .2s; min-width: 10px; }
+.rm-bar:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.rm-bar.dim, .rm-label.dim { opacity: 0.22; }
+.rm-axis { grid-column: 2; position: relative; height: 22px; border-top: 1px solid var(--line); margin-top: 4px; }
+.rm-axis span { position: absolute; top: 4px; transform: translateX(-50%); font: 0.72rem var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.rm-gridline { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); opacity: .6; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 0.82rem; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+/* Filters */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 18px; }
+.filters .lab { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-right: 4px; }
+.chip { font: 500 0.84rem var(--body); border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 5px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* Role cards */
+.roles { display: grid; gap: 12px; }
+.role { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; border-left: 4px solid var(--c); transition: opacity .2s, box-shadow .2s; scroll-margin-top: 80px; }
+.role.dim { opacity: 0.3; }
+.role.flash { box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 40%, transparent); }
+.role-head { width: 100%; text-align: left; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; padding: 16px 18px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: start; }
+.role-title { font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; }
+.role-co { color: var(--muted); font-size: 0.95rem; }
+.role-dates { font: 500 0.82rem var(--mono); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; text-align: right; }
+.role-dur { font: 0.75rem var(--mono); color: var(--c); text-align: right; }
+.role-sum { grid-column: 1 / -1; color: var(--ink); margin-top: 4px; max-width: 75ch; }
+.toggle-hint { grid-column: 1 / -1; font: 0.78rem var(--mono); color: var(--accent); margin-top: 2px; }
+.role-body { padding: 0 18px 18px; display: grid; gap: 14px; }
+.role-body ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; max-width: 80ch; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font: 0.75rem var(--mono); padding: 3px 8px; border-radius: 5px; background: var(--accent-soft); color: var(--ink); }
+.tag.hit { background: var(--amber); color: var(--bg); }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+.tab { font: 600 0.86rem var(--body); background: none; border: 0; border-bottom: 2px solid transparent; color: var(--muted); padding: 8px 10px; cursor: pointer; margin-bottom: -1px; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--c); }
+.proj-meta { font: 0.8rem var(--mono); color: var(--muted); }
+.metric { display: flex; flex-wrap: wrap; gap: 10px; }
+.metric div { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
+.metric b { font-family: var(--display); font-size: 1.3rem; display: block; }
+.metric span { font-size: 0.8rem; color: var(--muted); }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.skill-group { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+.skill-group h3 { font-family: var(--display); font-size: 1rem; margin: 0 0 10px; }
+.skill-group .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-note { font-size: 0.85rem; color: var(--muted); margin-top: 12px; }
+.skill-note b { color: var(--ink); }
+
+/* Credentials */
+.creds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.cred { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 10px; min-width: 0; }
+.cred h3 { font-family: var(--display); margin: 0; font-size: 1.05rem; }
+.cred p { margin: 0; }
+.cred .small { color: var(--muted); font-size: 0.9rem; }
+.badge { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.badge svg { flex: none; }
+ul.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+ul.plain li { padding-left: 18px; position: relative; }
+ul.plain li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 8px; height: 2px; background: var(--accent); }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var(--muted); font-size: 0.9rem; }
+
+
+/* Interactivity + glyphs */
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+.nav a[aria-current="true"] { color: var(--ink); background: var(--accent-soft); }
+.role { position: relative; overflow: hidden; }
+.role::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(420px circle at var(--mx, -999px) var(--my, -999px), color-mix(in srgb, var(--c) 10%, transparent), transparent 70%); }
+.role > * { position: relative; z-index: 1; }
+.role > .glyph { position: absolute; z-index: 0; right: -10px; top: 70px; width: 280px; height: 280px; color: var(--c); opacity: 0.12; pointer-events: none; transition: transform .5s ease, opacity .3s; }
+.role:hover > .glyph, .role.is-open > .glyph { opacity: 0.14; transform: rotate(-4deg) scale(1.04); }
+.glyph svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.glyph .fillme { fill: currentColor; stroke: none; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+.search { flex: 1 1 220px; min-width: 0; font: 400 0.92rem var(--body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; }
+.search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.kbd { font: 0.72rem var(--mono); color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.count { font: 0.78rem var(--mono); color: var(--muted); }
+mark { background: color-mix(in srgb, var(--amber) 35%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; }
+.tip { position: fixed; z-index: 30; max-width: 280px; background: var(--ink); color: var(--bg); border-radius: 8px; padding: 9px 12px; font-size: 0.82rem; line-height: 1.4; pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.tip b { display: block; font-family: var(--display); font-size: 0.92rem; }
+.tip span { font-family: var(--mono); font-size: 0.72rem; opacity: .8; }
+.rm-bar.active { outline: 2px solid var(--ink); outline-offset: 1px; }
+.totop { position: fixed; right: 16px; bottom: 16px; z-index: 12; border-radius: 999px; }
+.totop[hidden] { display: none; }
+.stat { transition: background .2s; } .stat:hover { background: var(--accent-soft); }
+.tag { cursor: pointer; border: 0; }
+@media (max-width: 640px) { .role > .glyph { width: 180px; height: 180px; right: -30px; top: 110px; } }
+
+@media (max-width: 820px) {
+  .skills { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .skills, .creds { grid-template-columns: 1fr; }
+  .nav a.hide-sm { display: none; }
+  .role-head { grid-template-columns: 1fr; }
+  .role-dates, .role-dur { text-align: left; }
+  .hero { padding-block: 36px 24px; }
+}
+</style>
+
+<header class="bar">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="wrap">
+    <a class="mark" href="#top">KPP</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#roadmap">Roadmap</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#credentials" class="hide-sm">Credentials</a>
+      <button class="btn" id="theme" type="button" aria-label="Switch color theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <section class="hero" aria-labelledby="name">
+    <div>
+      <div class="eyebrow">Product Manager · Payments, risk &amp; data platforms</div>
+      <h1 id="name">Kalyan Pradyumna Peddinti</h1>
+      <p class="lead">I build the platforms that sit behind everyday financial decisions. At <b>American Express</b> I lead Risk Data Management (RDM 2.0), the data foundation for card authorization decisioning, after owning the enterprise platform that sends every Credit &amp; Fraud Risk message to card members. Before that: <b>healthcare, pharmacy, insurance, airline and retail</b> platforms, most of them legacy systems that needed a modern replacement.</p>
+      <div class="contact">
+        <span class="val" id="email">Kalyan.ped91@gmail.com</span>
+        <button class="btn primary" type="button" id="copy-email">Copy email</button>
+        <span class="val">619-576-6926</span>
+        <span class="copied" id="copied" aria-live="polite"></span>
+      </div>
+    </div>
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><div class="n" data-count="9" data-suf="+">9+</div><div class="l">years in product</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="400" data-suf="M+">400M+</div><div class="l">records migrated on one pipeline</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="10" data-suf="M">10M</div><div class="l">daily batch reads served</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="8" data-suf="">8</div><div class="l">companies across 6 industries</div></div>
+    </div>
+  </section>
+
+  <section id="roadmap" aria-labelledby="rm-h">
+    <h2 id="rm-h">Career roadmap</h2>
+    <p class="sub">Every role on one timeline. Select a bar to jump to its details, or filter by industry below.</p>
+    <div class="roadmap">
+      <div class="rm-inner" id="rm"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+    <p class="sub">Select a role to see the full detail. Search or filter to dim what doesn't match, or click any skill tag to highlight every role that used it.</p>
+    <div class="tools"><input class="search" id="q" type="search" placeholder="Search experience: try “pipeline”, “Salesforce”, “UAT”" aria-label="Search experience"><span class="kbd" aria-hidden="true">/</span><button class="btn" id="expand" type="button">Expand all</button><button class="btn" id="collapse" type="button">Collapse all</button><span class="count" id="count" aria-live="polite"></span></div>
+    <div class="filters" id="filters" role="group" aria-label="Filter by industry"><span class="lab">Industry</span></div>
+    <div class="roles" id="roles"></div>
+  </section>
+
+  <section id="skills" aria-labelledby="sk-h">
+    <h2 id="sk-h">Skills &amp; tools</h2>
+    <p class="sub">Select a skill to highlight the roles where it was used.</p>
+    <div class="skills" id="skill-groups"></div>
+    <p class="skill-note" id="skill-note" aria-live="polite">No skill selected.</p>
+  </section>
+
+  <section id="credentials" aria-labelledby="cr-h">
+    <h2 id="cr-h">Credentials</h2>
+    <div class="creds">
+      <div class="cred">
+        <h3>Certifications</h3>
+        <p class="badge"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4.5v9L12 22l-8-6.5v-9z" fill="var(--accent)"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="var(--bg)" stroke-width="2" fill="none"/></svg>SAFe® 6 Product Owner / Product Manager (POPM)</p>
+        <p class="badge"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4.5v9L12 22l-8-6.5v-9z" fill="var(--health)"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="var(--bg)" stroke-width="2" fill="none"/></svg>Certified Scrum Master</p>
+      </div>
+      <div class="cred">
+        <h3>Education</h3>
+        <p><b>Master of Science, Information Systems</b><br><span class="small">George Mason University, Virginia</span></p>
+        <p><b>Bachelor of Technology</b><br><span class="small">JNTU, Hyderabad</span></p>
+      </div>
+      <div class="cred" style="grid-column: 1 / -1">
+        <h3>What I bring to a team</h3>
+        <ul class="plain">
+          <li>Successful deployment of the products I own, from requirements through post-implementation verification.</li>
+          <li>Managing multiple teams with a clear, precise roadmap for each initiative, including leading a team of Product Owners.</li>
+          <li>Owning an entire initiative across multiple channels.</li>
+          <li>Understanding the technical workings of the product well enough to work side by side with architects and engineers.</li>
+          <li>Spotting risks and dependencies early in each product iteration and communicating them to the stakeholders they affect.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="btn totop" id="totop" type="button" hidden aria-label="Back to top">↑ Top</button>
+<div class="tip" id="tip" hidden></div>
+<footer>
+  <div class="wrap">Kalyan Pradyumna Peddinti · Kalyan.ped91@gmail.com · 619-576-6926</div>
+</footer>
+
+<script>
+(function(){
+  var IND = {
+    fin: { name: "Financial services", c: "var(--fin)" },
+    health: { name: "Healthcare & pharmacy", c: "var(--health)" },
+    ins: { name: "Insurance", c: "var(--ins)" },
+    travel: { name: "Airline", c: "var(--travel)" },
+    retail: { name: "Retail", c: "var(--retail)" }
+  };
+  var NOW = 2026.8;
+  function ym(s){ if(s==="now") return NOW; var p=s.split("/"); return +p[1] + (+p[0]-1)/12; }
+  function dur(a,b){ var m=Math.round((ym(b)-ym(a))*12)+ (b==="now"?0:1); var y=Math.floor(m/12), r=m%12; return (y? y+" yr"+(y>1?"s":"") : "") + (y&&r?" ":"") + (r? r+" mo":""); }
+
+  var ROLES = [
+    { id:"amex", co:"American Express", title:"Product Manager", from:"10/2021", to:"now", ind:"fin",
+      sum:"Product Manager in Credit & Fraud Risk, across three initiatives: risk data, customer communications and customer identity.",
+      skills:["Data pipelines (batch & real-time)","Data migration","ChatGPT (custom GPTs)","Jira","Rally","SAFe","UAT","Requirements & user stories","Solution design reviews","Dashboards & reporting","Legacy modernization"],
+      projects:[
+        { name:"RDM 2.0 · Risk Data Management", dates:"04/2025 – present",
+          metrics:[["400M+","records migrated (Merchant Demographic pipeline)"],["10M","daily batch reads supported"]],
+          bullets:[
+            "Lead product delivery for RDM 2.0, the risk data platform at the heart of the Authorization Modernization Platform (AMP), holding the data used for risk decisioning on card authorizations.",
+            "Drive the migration of risk data from the legacy CAS platform to RDM 2.0, so AMP retrieves all data required for risk decisioning from RDM.",
+            "Own multiple data ingestion pipelines across batch and real-time patterns, including the Merchant Demographic batch pipeline.",
+            "Partner with journey teams to articulate their data requirements and deliver ingestion pipelines that meet each journey's needs.",
+            "Partner with solution architects to finalize solutions for journey requirements, jointly analyzing designs to identify requirement and technical gaps.",
+            "Designed and built custom GPTs for the product team: one generates detailed features and user stories customized for RDM product and technical requirements and flags gaps against solution diagrams; another produces the requirements sheet used for requirement gathering and handover to engineering. Used extensively across the team.",
+            "Lead the full delivery lifecycle: requirement analysis, implementation, functional and performance testing, UAT, production deployment and post-implementation verification (PIV).",
+            "Built custom Rally and Jira dashboards to track project progress and the product backlog."
+          ]},
+        { name:"Raven · Enterprise Communication Platform", dates:"06/2022 – 04/2025",
+          bullets:[
+            "Owned Raven, the enterprise platform delivering all Credit & Fraud Risk customer communications (email, SMS, push notifications) to American Express card members.",
+            "Translated Risk and business objectives into scalable product solutions with Architecture, Technology and business teams, meeting Amex security, performance, governance and control standards.",
+            "Led requirement workshops and defined features, user stories, acceptance criteria and delivery milestones.",
+            "Managed the program backlog and Agile Release Train (SAFe) vision and roadmap; resolved cross-team dependencies and communicated progress.",
+            "Used customer research and stakeholder feedback to deliver customer experience improvements across channels."
+          ]},
+        { name:"UCID · One Identity", dates:"10/2021 – 03/2022",
+          bullets:[
+            "Owned web-based functionality in the World Credit Collection System for over-the-phone payment collection, modernizing legacy green-screen workflows.",
+            "Supported green-screen decommissioning, including moving legacy reports onto the modernized platform.",
+            "Analyzed data and tool usage, and built reporting to track adoption and performance.",
+            "Supported Amex's Universal Customer ID (UCID / One Identity) authentication initiative across E1, E2, E2 Arena and Production environments.",
+            "Contributed to India Data Localization (IDL) compliance, including access-permission refreshes."
+          ]}
+      ]},
+    { id:"cvs", co:"CVS / Aetna", title:"Product Manager", from:"01/2021", to:"10/2021", ind:"health",
+      sum:"Shop Buy Enroll: a Direct-to-Consumer Medicare enrollment platform plus a tele-sales agent console, on one release train.",
+      skills:["Salesforce Industries (Vlocity)","Salesforce Omni-Channel","Salesforce CRM","SAFe","Azure DevOps","UAT",".NET / AngularJS","Figma","Requirements & user stories"],
+      bullets:[
+        "Owned a release train with a Direct-to-Consumer platform and a tele-sales agent console supporting Medicare enrollments for prospects aged 60+.",
+        "Delivered on low-code platforms: Salesforce Industries (Vlocity) and Salesforce community sites, plus the Salesforce CRM console for tele-sales agents.",
+        "Implemented Salesforce Omni-Channel to route customers seamlessly from the DTC site to tele-sales agents.",
+        "Analyzed requirements and collaborated with technical teams to define and prioritize backlog items.",
+        "Established acceptance criteria, conducted acceptance testing and ensured post-development quality.",
+        "Owned program backlog prioritization and release definition, working closely with engineering teams.",
+        "Facilitated discovery sessions, project planning and user acceptance testing sessions.",
+        "Actively managed the change management process and collaborated with cross-functional teams."
+      ]},
+    { id:"assurant", co:"Assurant · Miami, FL", title:"Technical Product Owner", from:"12/2019", to:"12/2020", ind:"ins",
+      sum:"Digital Global Sales Platform: a web product built from COTS components for life and mobile/gadget insurance, serving B2B and B2C.",
+      skills:["Azure DevOps",".NET / AngularJS","UAT","Release planning","Figma","CI/CD","Requirements & user stories"],
+      bullets:[
+        "Led product development and backlog management for the Digital Global Sales Platform, serving both B2B partners and B2C customers.",
+        "Analyzed business and technical requirements, conducted smoke testing and assured product quality.",
+        "Collaborated with stakeholders to understand scope and prioritize backlog items.",
+        "Used Agile methods to drive continuous integration and deployment.",
+        "Contributed to release planning, system architecture documentation and user acceptance testing."
+      ]},
+    { id:"united", co:"United Airlines · Chicago, IL", title:"Product Owner", from:"04/2019", to:"11/2019", ind:"travel",
+      sum:"Compass, the airline reservation platform replacing a legacy system.",
+      skills:["Legacy modernization","Microservices",".NET / AngularJS","Roadmap planning"],
+      bullets:[
+        "Owned product for Compass, a reservation platform covering initial shopping, re-shopping, award and revenue shopping, and upgrades based on account standing.",
+        "Led a legacy modernization initiative replacing an aging reservation system with a new platform, adding features that improved operational efficiency and customer experience.",
+        "Worked with cross-functional teams to conceptualize, design and execute Compass in line with organizational objectives and industry standards.",
+        "Directed roadmap planning, prioritization and execution using Agile methods.",
+        "Drove stakeholder engagement and gathered feedback to refine the platform throughout its lifecycle."
+      ]},
+    { id:"walgreens", co:"Walgreens · Deerfield, IL", title:"Product Owner", from:"07/2018", to:"03/2019", ind:"health",
+      sum:"Rx Renewal Integration: moving legacy data and functions into the new pharmacy application.",
+      skills:["Legacy modernization","Talend (ETL)","Cassandra","Microservices","Java","Jira","Confluence"],
+      bullets:[
+        "Led the Rx Renewal Integration project, moving data and functionality from legacy systems to the new pharmacy application system.",
+        "Drove integration across sub-systems of the new platform, including Prescription Processing, Clinical Services, Clinical Evaluation and Supply Chain Management.",
+        "Scoped the project so existing legacy functions were fully adopted alongside new requirements that addressed the legacy system's limits.",
+        "Aligned project objectives with organizational goals to improve operational efficiency.",
+        "Worked through a complex technical landscape to land a successful integration strategy."
+      ]},
+    { id:"jnj", co:"Johnson & Johnson · NJ", title:"Agile / Scrum Coach", from:"02/2018", to:"07/2018", ind:"health",
+      sum:"Training and curriculum for internal employees and customers.",
+      skills:["Agile coaching","Training & curriculum"],
+      bullets:[
+        "Delivered training to internal employees and customers on a proprietary business process (rRDM).",
+        "Planned and ran computer training to prepare employees for their roles.",
+        "Developed standard curriculum, including agendas, schedules, training materials, scenarios, system set-up, configuration, handouts and knowledge tests.",
+        "Wrote instructor guides and reviewed, edited and validated training materials and eLearning modules.",
+        "Built custom curricula with clients, using agendas and materials based on each client's financial systems environment."
+      ]},
+    { id:"qvc", co:"QVC · West Chester, PA", title:"Product Owner", from:"07/2017", to:"01/2018", ind:"retail",
+      sum:"Integrated Lifecycle: a portal that automated CI/CD and traced release data for IT.",
+      skills:["CI/CD","Jira","Oracle SQL","Java","Microservices","Jenkins","UML & process flows","Requirements & user stories"],
+      bullets:[
+        "Led requirements gathering, backlog management and sprint planning for Integrated Lifecycle, a platform that replaced time-consuming manual release steps with automated CI/CD.",
+        "The portal traced all release data and gave Release Management, Change Management and IT development a visual view of it.",
+        "Defined user stories and acceptance criteria, and facilitated sprint reviews.",
+        "Produced UML schemas, mockups and business process flows to guide development.",
+        "Prioritized the product backlog, facilitated scrum ceremonies and served as the Agile subject-matter expert.",
+        "Worked with architects to document system architecture and technical scope."
+      ]},
+    { id:"jayam", co:"Jayam Solutions · Hyderabad, India", title:"Software Engineer", from:"10/2013", to:"06/2014", ind:"fin",
+      sum:"FIMO, a Java application for microfinance organizations.",
+      skills:["Java"],
+      bullets:[
+        "Developed FIMO, a flagship Java application for microfinance organizations, using core Java.",
+        "FIMO managed baseline, loan, savings, insurance, HR, MIS and accounting information for microfinance lenders.",
+        "Provided software development services to the client and supported the application as part of the technical team."
+      ]}
+  ];
+
+  var SKILL_GROUPS = [
+    { name:"Product & delivery", items:["Requirements & user stories","Roadmap planning","Release planning","UAT","SAFe","Agile coaching","Solution design reviews","UML & process flows","Legacy modernization","Training & curriculum"] },
+    { name:"Data, AI & platforms", items:["Data pipelines (batch & real-time)","Data migration","ChatGPT (custom GPTs)","Talend (ETL)","Cassandra","Oracle SQL","Salesforce Industries (Vlocity)","Salesforce Omni-Channel","Salesforce CRM","Microservices"] },
+    { name:"Tools & engineering", items:["Jira","Rally","Confluence","Azure DevOps","Dashboards & reporting","Jenkins","CI/CD","Java",".NET / AngularJS","Figma"] }
+  ];
+
+  var state = { ind: null, skill: null, q: "", open: {} , tab: {} };
+
+  // Original abstract glyphs (not brand logos), drawn as inline SVG
+  var G = {
+    pipeline:'<circle cx="16" cy="50" r="8"/><circle cx="52" cy="22" r="8"/><circle cx="52" cy="78" r="8"/><circle cx="86" cy="50" r="8"/><path d="M23 46l22-18M23 54l22 18M59 26l20 18M59 74l20-18"/><path d="M10 92h80M82 86l8 6-8 6"/>',
+    message:'<path d="M12 18h76a4 4 0 014 4v44a4 4 0 01-4 4H44L24 90V70H12a4 4 0 01-4-4V22a4 4 0 014-4z"/><path d="M24 34h52M24 46h40M24 58h28"/>',
+    identity:'<circle cx="50" cy="50" r="42"/><circle cx="50" cy="38" r="12"/><path d="M26 76c4-14 14-20 24-20s20 6 24 20"/><path d="M50 8v6M50 86v6M8 50h6M86 50h6"/>',
+    health:'<rect x="12" y="12" width="76" height="76" rx="18"/><path d="M50 28v44M28 50h44"/>',
+    heart:'<path d="M50 86C20 64 10 46 10 32a20 20 0 0140-8 20 20 0 0140 8c0 14-10 32-40 54z"/><path d="M50 36v26M37 49h26"/>',
+    shield:'<path d="M50 8l36 14v26c0 22-15 38-36 46C29 86 14 70 14 48V22z"/><path d="M34 50l12 12 22-24"/>',
+    plane:'<path d="M92 14L8 46l28 10 10 28 10-20 20 14z"/><path d="M36 56l56-42"/>',
+    pill:'<rect x="6" y="34" width="88" height="32" rx="16" transform="rotate(-35 50 50)"/><path d="M38 28l24 44" transform="rotate(0 50 50)"/><circle cx="50" cy="50" r="4" class="fillme"/>',
+    board:'<rect x="8" y="12" width="84" height="54" rx="4"/><path d="M50 66v22M30 90h40M22 28h26M22 40h40M22 52h20"/><circle cx="74" cy="34" r="8"/>',
+    bag:'<path d="M18 30h64l6 58H12z"/><path d="M34 40V24a16 16 0 0132 0v16"/>',
+    loop:'<path d="M80 36A32 32 0 0020 40"/><path d="M80 18v18H62"/><path d="M20 64a32 32 0 0060 4"/><path d="M20 82V64h18"/><circle cx="50" cy="52" r="6" class="fillme"/>',
+    code:'<path d="M34 28L10 50l24 22M66 28l24 22-24 22M58 18L42 82"/>'
+  };
+  var ROLE_GLYPH = { amex:["pipeline","message","identity"], cvs:"heart", assurant:"shield", united:"plane", walgreens:"pill", jnj:"board", qvc:"loop", jayam:"code" };
+  function glyphFor(r){ var g = ROLE_GLYPH[r.id]; if (Array.isArray(g)) g = g[state.tab[r.id]||0]; return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">'+G[g]+'</svg>'; }
+
+  try { var saved = JSON.parse(localStorage.getItem("kpp-state")||"{}"); if (saved.open) state.open = saved.open; } catch(e) {}
+  if (!Object.keys(state.open).length) state.open = { amex: true };
+  function save(){ try { localStorage.setItem("kpp-state", JSON.stringify({ open: state.open })); } catch(e) {} }
+
+  function el(tag, attrs, html){ var e=document.createElement(tag); if(attrs) for (var k in attrs){ if(k==="class") e.className=attrs[k]; else if(k==="style") e.style.cssText=attrs[k]; else e.setAttribute(k, attrs[k]); } if(html!=null) e.innerHTML=html; return e; }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  // Roadmap
+  var START = 2013.6, END = NOW + 0.2;
+  function pct(v){ return ((v-START)/(END-START))*100; }
+  var rm = document.getElementById("rm");
+  ROLES.forEach(function(r){
+    var lab = el("div", { class:"rm-label", "data-id": r.id, title: r.co }, esc(r.co.split(" · ")[0]));
+    var track = el("div", { class:"rm-track" });
+    for (var y=2014; y<=2026; y+=2) { var g=el("div",{class:"rm-gridline", style:"left:"+pct(y)+"%"}); track.appendChild(g); }
+    var a = ym(r.from), b = r.to==="now" ? NOW : ym(r.to)+1/12;
+    var bar = el("button", { class:"rm-bar", type:"button", "data-id": r.id, style:"left:"+pct(a)+"%;width:"+(pct(b)-pct(a))+"%;background:"+IND[r.ind].c, "aria-label": r.title+" at "+r.co+", "+r.from+" to "+(r.to==="now"?"present":r.to) }, esc(r.title));
+    bar.addEventListener("click", function(){ openRole(r.id, true); });
+    track.appendChild(bar);
+    rm.appendChild(lab); rm.appendChild(track);
+  });
+  var axis = el("div", { class:"rm-axis" });
+  for (var y=2014; y<=2026; y+=2) axis.appendChild(el("span", { style:"left:"+pct(y)+"%" }, String(y)));
+  rm.appendChild(el("div")); rm.appendChild(axis);
+  var legend = document.getElementById("legend");
+  Object.keys(IND).forEach(function(k){ legend.appendChild(el("span", null, '<i style="background:'+IND[k].c+'"></i>'+esc(IND[k].name))); });
+
+  // Filters
+  var filters = document.getElementById("filters");
+  function addChip(key, label, color){
+    var c = el("button", { class:"chip", type:"button", "aria-pressed": "false", "data-k": key||"" }, (color? '<i style="background:'+color+'"></i>' : "") + esc(label));
+    c.addEventListener("click", function(){ state.ind = (state.ind===key) ? null : key; if(!key) state.ind=null; render(); });
+    filters.appendChild(c);
+  }
+  addChip(null, "All");
+  Object.keys(IND).forEach(function(k){ addChip(k, IND[k].name, IND[k].c); });
+
+  // Role cards
+  var rolesEl = document.getElementById("roles");
+  function hl(t){ t=esc(t); if(!state.q) return t; var re=new RegExp("("+state.q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi"); return t.replace(re,"<mark>$1</mark>"); }
+  function bulletsHTML(list){ return "<ul>"+list.map(function(b){ return "<li>"+hl(b)+"</li>"; }).join("")+"</ul>"; }
+  function roleText(r){ var t=[r.co,r.title,r.sum].concat(r.skills); (r.projects?r.projects.reduce(function(a,p){return a.concat(p.name,p.bullets);},[]):r.bullets).forEach(function(b){t.push(b);}); return t.join(" ").toLowerCase(); }
+  function roleBody(r){
+    var html = "";
+    if (r.projects) {
+      var t = state.tab[r.id] || 0;
+      html += '<div class="tabs" role="tablist" aria-label="'+esc(r.co)+' projects">' + r.projects.map(function(p,i){ return '<button class="tab" role="tab" type="button" id="tab-'+r.id+'-'+i+'" aria-selected="'+(i===t)+'" data-i="'+i+'">'+esc(p.name.split(" · ")[0])+'</button>'; }).join("") + '</div>';
+      var p = r.projects[t];
+      html += '<div role="tabpanel" aria-labelledby="tab-'+r.id+'-'+t+'"><div class="proj-meta">'+esc(p.name)+' · '+esc(p.dates)+'</div>';
+      if (p.metrics) html += '<div class="metric" style="margin-top:10px">'+p.metrics.map(function(m){ return "<div><b>"+esc(m[0])+"</b><span>"+esc(m[1])+"</span></div>"; }).join("")+'</div>';
+      html += '<div style="margin-top:10px">'+bulletsHTML(p.bullets)+'</div></div>';
+    } else html += bulletsHTML(r.bullets);
+    html += '<div class="tags">'+r.skills.map(function(s){ return '<button type="button" class="tag'+(state.skill===s?" hit":"")+'" data-skill="'+esc(s)+'" title="Highlight roles that used this">'+esc(s)+'</button>'; }).join("")+'</div>';
+    return html;
+  }
+  ROLES.forEach(function(r){
+    var card = el("article", { class:"role", id:"role-"+r.id, style:"--c:"+IND[r.ind].c });
+    var head = el("button", { class:"role-head", type:"button", "aria-expanded":"false", "aria-controls":"body-"+r.id });
+    head.innerHTML = '<div><div class="role-title">'+esc(r.title)+'</div><div class="role-co">'+esc(r.co)+'</div></div>' +
+      '<div><div class="role-dates">'+r.from+' – '+(r.to==="now"?"Present":r.to)+'</div><div class="role-dur">'+dur(r.from,r.to)+'</div></div>' +
+      '<div class="role-sum">'+esc(r.sum)+'</div><div class="toggle-hint"></div>';
+    head.addEventListener("click", function(){ state.open[r.id] = !state.open[r.id]; save(); render(); });
+    var body = el("div", { class:"role-body", id:"body-"+r.id });
+    body.addEventListener("click", function(e){ var tg=e.target.closest(".tag"); if(tg){ state.skill = state.skill===tg.dataset.skill ? null : tg.dataset.skill; render(); return; } var t=e.target.closest(".tab"); if(t){ state.tab[r.id] = +t.dataset.i; render(); var nt=document.getElementById("tab-"+r.id+"-"+t.dataset.i); if(nt) nt.focus(); } });
+    card.appendChild(el("div",{class:"glyph","aria-hidden":"true"})); card.appendChild(head); card.appendChild(body); rolesEl.appendChild(card);
+    card.addEventListener("pointermove", function(e){ var b=card.getBoundingClientRect(); card.style.setProperty("--mx",(e.clientX-b.left)+"px"); card.style.setProperty("--my",(e.clientY-b.top)+"px"); });
+  });
+
+  function openRole(id, scroll){
+    state.open[id] = true; save(); render();
+    var card = document.getElementById("role-"+id);
+    if (scroll && card) { card.scrollIntoView({ block:"start" }); card.classList.add("flash"); setTimeout(function(){ card.classList.remove("flash"); }, 1200); }
+  }
+
+  // Skills
+  var groups = document.getElementById("skill-groups");
+  SKILL_GROUPS.forEach(function(g){
+    var box = el("div", { class:"skill-group" }, "<h3>"+esc(g.name)+"</h3>");
+    var chips = el("div", { class:"chips" });
+    g.items.forEach(function(s){
+      var c = el("button", { class:"chip", type:"button", "aria-pressed":"false", "data-skill": s }, esc(s));
+      c.addEventListener("click", function(){ state.skill = state.skill===s ? null : s; render(); });
+      chips.appendChild(c);
+    });
+    box.appendChild(chips); groups.appendChild(box);
+  });
+
+  function matches(r){
+    if (state.ind && r.ind !== state.ind) return false;
+    if (state.skill && r.skills.indexOf(state.skill) < 0) return false;
+    if (state.q && roleText(r).indexOf(state.q.toLowerCase()) < 0) return false;
+    return true;
+  }
+  function render(){
+    ROLES.forEach(function(r){
+      var card = document.getElementById("role-"+r.id), ok = matches(r), open = !!state.open[r.id];
+      card.classList.toggle("dim", !ok); card.classList.toggle("is-open", open); card.querySelector(".glyph").innerHTML = glyphFor(r);
+      var head = card.querySelector(".role-head"); head.setAttribute("aria-expanded", String(open));
+      head.querySelector(".toggle-hint").textContent = open ? "Hide details" : "Show details";
+      var body = card.querySelector(".role-body"); body.hidden = !open; if (open) body.innerHTML = roleBody(r);
+      document.querySelectorAll('[data-id="'+r.id+'"]').forEach(function(n){ n.classList.toggle("dim", !ok); });
+    });
+    filters.querySelectorAll(".chip").forEach(function(c){ var k = c.dataset.k || null; c.setAttribute("aria-pressed", String(state.ind===k)); });
+    groups.querySelectorAll(".chip").forEach(function(c){ c.setAttribute("aria-pressed", String(state.skill===c.dataset.skill)); });
+    var n = ROLES.filter(matches).length; document.getElementById("count").textContent = (state.ind||state.skill||state.q) ? n+" of "+ROLES.length+" roles match" : "";
+    var note = document.getElementById("skill-note");
+    if (state.skill) {
+      var hits = ROLES.filter(function(r){ return r.skills.indexOf(state.skill) >= 0; }).map(function(r){ return r.co.split(" · ")[0]; });
+      note.innerHTML = "<b>"+esc(state.skill)+"</b> was used at "+esc(hits.join(", "))+". Matching roles are highlighted in Experience and the roadmap.";
+    } else note.textContent = "No skill selected.";
+  }
+  render();
+
+
+  // Search, expand/collapse
+  var qEl = document.getElementById("q"), qT;
+  qEl.addEventListener("input", function(){ clearTimeout(qT); qT=setTimeout(function(){ state.q = qEl.value.trim(); if (state.q) ROLES.forEach(function(r){ if(matches(r)) state.open[r.id]=true; }); render(); }, 120); });
+  document.addEventListener("keydown", function(e){ if (e.key==="/" && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); qEl.focus(); document.getElementById("experience").scrollIntoView(); } if (e.key==="Escape" && document.activeElement===qEl) { qEl.value=""; state.q=""; render(); qEl.blur(); } });
+  document.getElementById("expand").addEventListener("click", function(){ ROLES.forEach(function(r){ state.open[r.id]=true; }); save(); render(); });
+  document.getElementById("collapse").addEventListener("click", function(){ state.open={}; save(); render(); });
+
+  // Roadmap tooltip + bar keyboard arrows
+  var tip = document.getElementById("tip");
+  function showTip(r, x, y){ tip.hidden=false; tip.innerHTML='<b>'+esc(r.title)+' · '+esc(r.co.split(" · ")[0])+'</b><span>'+r.from+' – '+(r.to==="now"?"Present":r.to)+' · '+dur(r.from,r.to)+'</span><br>'+esc(r.sum); var w=tip.offsetWidth; tip.style.left=Math.max(8,Math.min(innerWidth-w-8,x+12))+"px"; tip.style.top=(y+16)+"px"; }
+  rm.querySelectorAll(".rm-bar").forEach(function(b,i){
+    var r=ROLES[i];
+    b.addEventListener("pointermove", function(e){ showTip(r,e.clientX,e.clientY); });
+    b.addEventListener("pointerleave", function(){ tip.hidden=true; });
+    b.addEventListener("focus", function(){ var bb=b.getBoundingClientRect(); showTip(r,bb.left,bb.bottom-12); });
+    b.addEventListener("blur", function(){ tip.hidden=true; });
+    b.addEventListener("keydown", function(e){ var bars=rm.querySelectorAll(".rm-bar"); if(e.key==="ArrowDown"&&bars[i+1]){ e.preventDefault(); bars[i+1].focus(); } if(e.key==="ArrowUp"&&bars[i-1]){ e.preventDefault(); bars[i-1].focus(); } });
+  });
+
+  // Scroll progress, back to top, active nav
+  var prog = document.getElementById("progress"), totop = document.getElementById("totop");
+  function onScroll(){ var h=document.documentElement.scrollHeight-innerHeight; prog.style.transform="scaleX("+(h>0?Math.min(1,scrollY/h):0)+")"; totop.hidden = scrollY < 700; }
+  addEventListener("scroll", onScroll, { passive:true }); onScroll();
+  totop.addEventListener("click", function(){ scrollTo({ top:0 }); });
+  if ("IntersectionObserver" in window) {
+    var links = {}; document.querySelectorAll(".nav a[href^='#']").forEach(function(a){ links[a.getAttribute("href").slice(1)] = a; });
+    var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ Object.keys(links).forEach(function(k){ links[k].removeAttribute("aria-current"); }); var l=links[en.target.id]; if(l) l.setAttribute("aria-current","true"); } }); }, { rootMargin:"-40% 0px -55% 0px" });
+    ["roadmap","experience","skills","credentials"].forEach(function(id){ io.observe(document.getElementById(id)); });
+
+    // Stat counters (final text is already in the HTML; this only animates it)
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var so = new IntersectionObserver(function(es){ es.forEach(function(en){ if(!en.isIntersecting) return; so.unobserve(en.target); var t=en.target, end=+t.dataset.count, suf=t.dataset.suf, t0=null; function step(ts){ if(!t0) t0=ts; var k=Math.min(1,(ts-t0)/900), v=Math.round(end*(1-Math.pow(1-k,3))); t.textContent=v+(k<1?"":suf); if(k<1) requestAnimationFrame(step); } requestAnimationFrame(step); }); }, { threshold:0.6 });
+      document.querySelectorAll("[data-count]").forEach(function(n){ so.observe(n); });
+    }
+  }
+
+  // Theme toggle
+  var root = document.documentElement;
+  try { var th = localStorage.getItem("kpp-theme"); if (th) root.setAttribute("data-theme", th); } catch(e) {}
+  document.getElementById("theme").addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var next = cur === "dark" ? "light" : "dark"; root.setAttribute("data-theme", next);
+    try { localStorage.setItem("kpp-theme", next); } catch(e) {}
+  });
+
+  // Copy email
+  document.getElementById("copy-email").addEventListener("click", function(){
+    var t = document.getElementById("email").textContent, out = document.getElementById("copied");
+    function fallback(){ var r=document.createRange(); r.selectNodeContents(document.getElementById("email")); var s=getSelection(); s.removeAllRanges(); s.addRange(r); out.textContent = "Selected. Press Ctrl+C or Cmd+C to copy."; }
+    try { navigator.clipboard.writeText(t).then(function(){ out.textContent = "Copied"; }, fallback); } catch(e) { fallback(); }
+  });
+})();
+</script>
