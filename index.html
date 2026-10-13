@@ -182,6 +182,8 @@ mark { background: color-mix(in srgb, var(--amber) 35%, transparent); color: inh
 .cert-item b { display: block; font-size: 0.95rem; line-height: 1.3; }
 .cert-item small { display: block; color: var(--muted); font-size: 0.8rem; }
 .cert-item .view { color: var(--accent); font-family: var(--mono); margin-top: 2px; }
+.cert-link { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-align: left; text-decoration: underline; text-underline-offset: 3px; }
+.cert-link:hover { text-decoration-thickness: 2px; }
 .cert-pop { position: fixed; z-index: 40; width: 320px; max-width: calc(100vw - 16px); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 6px; box-shadow: 0 12px 32px rgba(0,0,0,.28); pointer-events: none; }
 .cert-pop img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; }
 .cert-pop[hidden] { display: none; }
@@ -193,7 +195,7 @@ mark { background: color-mix(in srgb, var(--amber) 35%, transparent); color: inh
 .viewer-x { font-size: 1.3rem; line-height: 1; padding: 4px 11px; }
 .viewer-body { flex: 1; min-height: 0; background: var(--bg); overflow: auto; }
 .viewer-body .doc { padding: 16px; display: grid; gap: 14px; }
-.viewer-body .doc img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); background: #fff; }
+.viewer-body .doc img { max-width: 560px; margin-inline: auto; width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); background: #fff; }
 .doc-actions { margin: 0; display: flex; gap: 8px; flex-wrap: wrap; }
 .doc-actions .btn { text-decoration: none; }
 .viewer-body object { width: 100%; height: 100%; display: block; border: 0; }
@@ -288,7 +290,7 @@ mark { background: color-mix(in srgb, var(--amber) 35%, transparent); color: inh
       </div>
       <div class="cred">
         <h3>Education</h3>
-        <p><b>Master of Science, Information Systems</b><br><span class="small">George Mason University, Virginia</span></p>
+        <p><button type="button" class="cert-link" data-pdf="certs/gmu-ms-information-systems.pdf" data-img="certs/gmu-ms-information-systems.png" data-title="Master of Science, Information Systems (George Mason University)" title="View degree certificate"><b>Master of Science, Information Systems</b></button><br><span class="small">George Mason University, Virginia</span></p>
         <p><b>Bachelor of Technology</b><br><span class="small">JNTU, Hyderabad</span></p>
       </div>
       <div class="cred" style="grid-column: 1 / -1">
@@ -635,7 +637,7 @@ mark { background: color-mix(in srgb, var(--amber) 35%, transparent); color: inh
     document.getElementById("viewer-close").focus();
   }
   function closeCert(){ if(!viewer.classList.contains("open")) return; viewer.classList.remove("open"); viewer.setAttribute("aria-hidden","true"); setTimeout(function(){ if(!viewer.classList.contains("open")) vBody.innerHTML=""; }, 300); if(lastCert) lastCert.focus(); }
-  document.querySelectorAll(".cert-item").forEach(function(b){
+  document.querySelectorAll(".cert-item, .cert-link").forEach(function(b){
     b.addEventListener("click", function(){ openCert(b); });
     if (canHover) {
       b.addEventListener("pointerenter", function(e){ popImg.src=b.dataset.img; pop.hidden=false; placePop(e); });
