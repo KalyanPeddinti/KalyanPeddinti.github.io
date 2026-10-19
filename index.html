@@ -460,8 +460,8 @@ footer { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
 (function(){
   var docEl = document.documentElement;
   var reduceMQ = matchMedia("(prefers-reduced-motion: reduce)"), motionPref = null;
-  try { motionPref = localStorage.getItem("kpp-motion"); } catch(e) {}
-  function motionOn(){ if (motionPref === "on") return true; if (motionPref === "off") return false; return !reduceMQ.matches; }
+  try { motionPref = localStorage.getItem("kpp-motion2"); } catch(e) {}
+  function motionOn(){ return motionPref !== "off"; }
   function applyMotion(){ docEl.classList.toggle("anim", motionOn()); }
   applyMotion();
   var IND = {
@@ -824,9 +824,9 @@ footer { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
   // Animations on/off switch (respects the system "reduce motion" setting)
   var motionBtn = document.getElementById("motion");
   var motionNote = document.getElementById("motion-note");
-  function syncMotionBtn(){ var on = docEl.classList.contains("anim"); motionBtn.textContent = "Animations: " + (on ? "on" : "off"); motionBtn.setAttribute("aria-pressed", String(on)); motionNote.hidden = !(reduceMQ.matches && !on); }
+  function syncMotionBtn(){ var on = docEl.classList.contains("anim"); motionBtn.textContent = "Animations: " + (on ? "on" : "off"); motionBtn.setAttribute("aria-pressed", String(on)); motionNote.hidden = true; }
   syncMotionBtn();
-  motionBtn.addEventListener("click", function(){ motionPref = docEl.classList.contains("anim") ? "off" : "on"; try { localStorage.setItem("kpp-motion", motionPref); } catch(e) {} applyMotion(); syncMotionBtn(); });
+  motionBtn.addEventListener("click", function(){ motionPref = docEl.classList.contains("anim") ? "off" : "on"; try { localStorage.setItem("kpp-motion2", motionPref); } catch(e) {} applyMotion(); syncMotionBtn(); });
 
   // Theme toggle
   var root = document.documentElement;
